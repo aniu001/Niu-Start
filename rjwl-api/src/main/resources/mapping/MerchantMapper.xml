@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rjwl.api.mapper.MerchantMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rjwl.api.entity.Merchant">
+    <result column="id" property="id" />
+        <result column="merchant_tag" property="merchantTag" />
+        <result column="app_tag" property="appTag" />
+        <result column="merchant_balance" property="merchantBalance" />
+        <result column="extend1" property="extend1" />
+        <result column="extend2" property="extend2" />
+        <result column="extend3" property="extend3" />
+        <result column="extend4" property="extend4" />
+        <result column="extend5" property="extend5" />
+        <result column="upt" property="upt" />
+        <result column="gmt" property="gmt" />
+        <result column="version" property="version" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        merchant_tag, app_tag, merchant_balance, extend1, extend2, extend3, extend4, extend5, upt, gmt, version
+    </sql>
+
+    <update id="rechargeMerchantBalance">
+        update merchant set merchant_balance = merchant_balance + #{money},version = version + 1 where id=#{id} AND version = #{version}
+    </update>
+
+</mapper>

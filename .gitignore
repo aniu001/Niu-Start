@@ -1,0 +1,10 @@
+*.iml
+generated-sources
+generated-test-sources
+test-classes
+.idea
+.settings
+.classpath
+.project
+target
+mybatis.mapper

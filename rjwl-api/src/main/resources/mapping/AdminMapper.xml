@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rjwl.api.mapper.AdminMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rjwl.api.entity.Admin">
+    <result column="id" property="id" />
+        <result column="admin_name" property="adminName" />
+        <result column="password" property="password" />
+        <result column="role_id" property="roleId" />
+        <result column="admin_state" property="adminState" />
+        <result column="gmt" property="gmt" />
+        <result column="upt" property="upt" />
+        <result column="distribution" property="distribution" />
+        <result column="super_state" property="superState" />
+        <result column="vcode" property="vcode" />
+        <result column="nickName" property="nickName" />
+        <result column="version" property="version" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        admin_name, password, role_id, admin_state, gmt, upt, distribution, super_state, vcode, nickName, version
+    </sql>
+
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rjwl.api.mapper.MenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rjwl.api.entity.Menu">
+        <result column="id" property="id"/>
+        <result column="zid" property="zid"/>
+        <result column="pid" property="pid"/>
+        <result column="super_state" property="superState"/>
+        <result column="state" property="state"/>
+        <result column="menu_code" property="menuCode"/>
+        <result column="text" property="text"/>
+        <result column="url" property="url"/>
+        <result column="inconCls" property="inconCls"/>
+        <result column="gmt" property="gmt"/>
+        <result column="upt" property="upt"/>
+        <result column="version" property="version"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        zid, pid, super_state, state, menu_code, text, url, inconCls, gmt, upt, version
+    </sql>
+    <!--根据角色ID获取 权限资源-->
+    <select id="selectMenusByRoleId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT
+        <include refid="Base_Column_List"/>
+    FROM menu WHERE id IN (SELECT menu_id FROM rolemenu WHERE role_id = #{roleId})
+  </select>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rjwl.api.mapper.OperationLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.rjwl.api.entity.OperationLog">
+    <result column="id" property="id" />
+    <result column="gmt" property="gmt" />
+    <result column="upt" property="upt" />
+    <result column="version" property="version" />
+        <result column="admin_id" property="adminId" />
+        <result column="admin_name" property="adminName" />
+        <result column="operation_record" property="operationRecord" />
+        <result column="login_ip" property="loginIp" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        gmt,
+        upt,
+        version,
+        admin_id, admin_name, operation_record, login_ip
+    </sql>
+
+</mapper>
